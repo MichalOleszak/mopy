@@ -1,6 +1,6 @@
 def rotate_point(x, y, x_c=0, y_c=0, angle=0, units="degrees"):
     """
-    Rotate a point on the Cartesian plane around another points
+    Rotate a point on the Cartesian plane around another point
     by the chosen angle.
     :param x: x coordinate of the point to be rotated
     :param y: y coordinate of the point to be rotated
