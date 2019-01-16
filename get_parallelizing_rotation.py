@@ -15,11 +15,11 @@ def get_parallelizing_rotation(near_table_path, angle_method="PLANAR"):
     angles = [float(a) for a in [b.replace(',', '.') for b in angles]]
     # Compute required rotation angles
     if angle_method == "PLANAR":
-        reqrot = [-a for a in [b + 360 if b < 0 else b for b in angles]]
+        req_rot = [a + 360 if a < 0 else a for a in angles]
     elif angle_method == "GEODESIC":
         raise Exception("Method GEODESIC is not supported yet. Recompute near_table using PLANAR method.")
     else:
         raise Exception("Unsupported angle_method provided. Available methods are 'PLANAR' and 'GEODESIC'.")
-    return(reqrot)
+    return req_rot
 
 
