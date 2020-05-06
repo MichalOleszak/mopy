@@ -35,7 +35,7 @@ def optimize_df_memory_usage(df, perc_unique_categories=0.5):
 def concat_with_categoricals(df_list):
     """
     Concatenate data frames while preserving categorical variables' type.
-    Based on this StackOvereflow thresd:
+    Based on this StackOvereflow thread:
     https://stackoverflow.com/questions/45639350/retaining-categorical-dtype-upon-dataframe-concatenation
     :param df_list: A list of pandas Data.Frames 
     :return: A concatenated pandas Data.Frame with categorical variables.
