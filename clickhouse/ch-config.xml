@@ -1,0 +1,10 @@
+<config>
+  <host>***</host>
+  <port>***</port>
+  <user>***</user>
+  <password>***</password>
+  <secure>True</secure>
+  <multiquery>True</multiquery>
+  <receive_timeout>86000</receive_timeout>
+  <history_file>./.clickhouse-client-history</history_file>
+</config>
