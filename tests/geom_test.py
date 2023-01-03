@@ -1,5 +1,4 @@
-import pytest
-import mopy.geom.geom as geom
+import geom
 
 
 class TestLineIntersection(object):

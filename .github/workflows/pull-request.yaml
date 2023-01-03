@@ -1,0 +1,42 @@
+name: Pull Request Check
+
+on:
+  pull_request:
+    branches: [master]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PYTHONPATH: "."
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip3 install poetry
+          poetry export -f requirements.txt --output requirements.txt --without-hashes
+          pip3 install -r requirements.txt
+
+      - name: Run test suite
+        run: pytest -v
+
+  check-code-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+  
+      - name: Install dependencies
+        run: pip3 install black
+  
+      - name: Check code format
+        run: black . --line-length 120 --check
