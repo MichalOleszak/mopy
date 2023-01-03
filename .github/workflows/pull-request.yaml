@@ -30,13 +30,13 @@ jobs:
         run: pytest -v
 
   check-code-format:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: pip3 install black
-
-    - name: Check code format
-      run: black . --line-length 120 --check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+  
+      - name: Install dependencies
+        run: pip3 install black
+  
+      - name: Check code format
+        run: black . --line-length 120 --check
