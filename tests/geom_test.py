@@ -1,5 +1,4 @@
-import pytest
-from utils import geom
+import geom
 
 
 class TestLineIntersection(object):
