@@ -40,6 +40,4 @@ def query_dataframe_pb(client, query):
         pbar.update(num_rows - pbar.n)
     pbar.close()
     data, columns = progress.get_result()
-    return pd.DataFrame(
-        {re.sub(r'\W', '_', col[0]): d for d, col in zip(data, columns)}
-    )
+    return pd.DataFrame({re.sub(r"\W", "_", col[0]): d for d, col in zip(data, columns)})

@@ -14,8 +14,8 @@ def get_parallelizing_rotation(near_table_path, angle_method="PLANAR"):
     # Read in near table data
     near_table = pd.read_csv(near_table_path, sep=";")
     # Extract & clean angles of the line connecting rectangle's centroid and nearest point on the near feature line
-    angles = near_table.loc[near_table['NEAR_RANK'] == 1].NEAR_ANGLE.tolist()
-    angles = [float(a) for a in [b.replace(',', '.') for b in angles]]
+    angles = near_table.loc[near_table["NEAR_RANK"] == 1].NEAR_ANGLE.tolist()
+    angles = [float(a) for a in [b.replace(",", ".") for b in angles]]
     # Compute required rotation angles
     if angle_method == "PLANAR":
         req_rot = [a + 360 if a < 0 else a for a in angles]
@@ -41,7 +41,7 @@ def line_intersection(line1, line2):
 
     div = det(xdiff, ydiff)
     if div == 0:
-       raise Exception('Lines do not intersect')
+        raise Exception("Lines do not intersect")
 
     d = (det(*line1), det(*line2))
     x = det(d, xdiff) / div

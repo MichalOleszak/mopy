@@ -12,11 +12,12 @@ class S3FSClient:
     """
     AWS S3 filesystem with ready-made methods for dumping, loading and deleting data
     """
+
     def __init__(self):
         self.fs = s3fs.S3FileSystem(
             key=os.getenv("AWS_ACCESS_KEY_ID"),
             secret=os.getenv("AWS_SECRET_ACCESS_KEY"),
-            config_kwargs={"region_name": os.getenv("AWS_REGION")}
+            config_kwargs={"region_name": os.getenv("AWS_REGION")},
         )
 
     def ls(self, path):
@@ -59,4 +60,3 @@ class S3FSClient:
     def load_json_to_dict(self, filepath):
         with self.fs.open(filepath, "r") as f:
             return json.load(f)
-

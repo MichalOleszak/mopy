@@ -8,6 +8,7 @@ authors = ["MichalOleszak <oleszak.michal@gmail.com>"]
 python = "^3.9"
 numpy = "^1.22.3"
 pytest = "^7.1.1"
+black = "^22.12.0"
 
 [tool.poetry.dev-dependencies]
 
